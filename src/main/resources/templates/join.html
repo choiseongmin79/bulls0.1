@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{layout/layout}">
+
+<th:block layout:fragment="content">
+    <!-- Begin Page Content -->
+    <div class="container contents-wrap">
+        <form action="/join" method="post">
+
+            <div class="container contents-wrap" th:replace="/content/basicForm" th:remove="tag">
+
+            </div>
+            <div class="container contents-wrap" th:replace="/content/selectMemberType" th:remove="tag">
+
+            </div>
+            <div class="container contents-wrap" th:replace="/content/agencyForm" th:remove="tag">
+
+            </div>
+            <div class="container contents-wrap" th:replace="/content/farmForm" th:remove="tag">
+
+            </div>
+            <div class="container contents-wrap" th:replace="/content/officeForm" th:remove="tag">
+
+            </div>
+            <div class="container contents-wrap">
+               <table>
+                    <tr>
+                        <td><button type="submit">제출</button></td>
+                        <td><button type="submit" onclick="location.href='/join'">초기화</button></td>
+                    </tr>
+               </table>
+            </div>
+        </form>
+    </div>
+
+</th:block>
+</html>

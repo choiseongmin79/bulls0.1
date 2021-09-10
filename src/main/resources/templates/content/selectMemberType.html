@@ -1,0 +1,28 @@
+
+                    <table class="table-secondary">
+                        <tr>
+                            <td>회원유형</td>
+
+                            <td>
+                                <input type="radio" name="memberType" id="type0" value="0">농장
+                                <input type="radio" name="memberType" id="type1" value="1">수의사
+                                <input type="radio" name="memberType" id="type2" value="2">수정사
+                                <input type="radio" name="memberType" id="type3" value="3">축협
+                                <input type="radio" name="memberType" id="type4" value="4">기술센터
+                                <input type="radio" name="memberType" id="type5" value="5">한우협회
+                                <input type="radio" name="memberType" id="type6" value="6">행정
+                            </td>
+                        </tr>
+                    </table>
+
+                    <script type="text/javascript">
+        const add_textbox = () => {
+            const box = document.getElementById("box");
+            const newP = document.createElement('p');
+            newP.innerHTML = "<input type='text'> <input type='button' value='삭제' onclick='remove(this)'>";
+            box.appendChild(newP);
+        }
+        const remove = (obj) => {
+            document.getElementById('box').removeChild(obj.parentNode);
+        }
+    </script>
