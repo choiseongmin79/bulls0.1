@@ -57,8 +57,8 @@ public class JoinService {
         agent.setPhone(form.getFarmPhone());
         agent.setLicense(form.getFarmNo());
         agent.setMembertype(form.getMemberType());
-        memberRepository.FarmSave(farm);
-        return farm.getId();
+        memberRepository.AgentSave(agent);
+        return agent.getId();
     }
     public Long OfficeJoin(MemberForm form){
         office.setName(form.getName());
@@ -66,8 +66,8 @@ public class JoinService {
         office.setPhone(form.getFarmPhone());
         office.setOfficeNo(form.getFarmNo());
         office.setMembertype(form.getMemberType());
-        memberRepository.FarmSave(farm);
-        return farm.getId();
+        memberRepository.OfficeSave(office);
+        return office.getId();
     }
 
     public Long PersonJoin(MemberForm form){

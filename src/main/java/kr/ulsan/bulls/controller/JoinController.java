@@ -26,10 +26,10 @@ public class JoinController {
     @PostMapping("/join")
     private String setMemberInfo(MemberForm form){
 
-
+        System.out.println(form.toString());
         joinService.Join(form);
 
-        return "join";
+        return "joinComplite";
     }
 }
 

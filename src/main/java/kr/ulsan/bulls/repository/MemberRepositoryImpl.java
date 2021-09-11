@@ -41,11 +41,11 @@ public class MemberRepositoryImpl implements MemberRepository {
 
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("name", person.getName());
-        parameters.put("address", person.getAddress());
-        parameters.put("cellphone", person.getCellphone());
-        parameters.put("birthday", person.getBirthday());
         parameters.put("password", person.getPassword());
         parameters.put("nickname", person.getNickname());
+        parameters.put("birthday", person.getBirthday());
+        parameters.put("cellphone", person.getCellphone());
+        parameters.put("address", person.getAddress());
         parameters.put("membertype", person.getMembertype());
 
         Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
@@ -77,9 +77,10 @@ public class MemberRepositoryImpl implements MemberRepository {
                 person.setId(rs.getLong("id"));
                 person.setName(rs.getString("name"));
                 person.setPassword(rs.getString("password"));
-                person.setAddress(rs.getString("address"));
-                person.setBirthday(rs.getString("birthday"));
                 person.setNickname(rs.getString("nickname"));
+                person.setBirthday(rs.getString("birthday"));
+                person.setCellphone(rs.getString("cellphone"));
+                person.setAddress(rs.getString("address"));
                 person.setMembertype(rs.getString("membertype"));
                 return person;
             }
@@ -92,10 +93,9 @@ public class MemberRepositoryImpl implements MemberRepository {
 
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("name", farm.getName());
-        parameters.put("farmno", farm.getFarmno());
-        parameters.put("address", farm.getAddress());
         parameters.put("phone", farm.getPhone());
-        parameters.put("membertype", farm.getMembertype());
+        parameters.put("address", farm.getAddress());
+        parameters.put("farmno", farm.getFarmno());
         parameters.put("ownid", person.getId());
 
         Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
@@ -125,9 +125,8 @@ public class MemberRepositoryImpl implements MemberRepository {
             public Farm mapRow(ResultSet rs, int rowNum) throws SQLException {
                 farm.setId(rs.getLong("id"));
                 farm.setName(rs.getString("name"));
-                farm.setAddress(rs.getString("address"));
-                farm.setMembertype(rs.getString("membertype"));
                 farm.setPhone(rs.getString("phone"));
+                farm.setAddress(rs.getString("address"));
                 farm.setFarmno(rs.getString("farmno"));
                 farm.setOwnid(rs.getLong("ownid"));
                 return farm;
@@ -177,7 +176,7 @@ public class MemberRepositoryImpl implements MemberRepository {
                 agent.setAddress(rs.getString("address"));
                 agent.setMembertype(rs.getString("membertype"));
                 agent.setPhone(rs.getString("phone"));
-                agent.setLicense(rs.getString("agentno"));
+                agent.setLicense(rs.getString("license"));
                 agent.setOwnid(rs.getLong("ownid"));
                 return agent;
             }
@@ -192,7 +191,7 @@ public class MemberRepositoryImpl implements MemberRepository {
         parameters.put("name", office.getName());
         parameters.put("address", office.getAddress());
         parameters.put("phone", office.getPhone());
-        parameters.put("license", office.getOfficeNo());
+        parameters.put("officeno", office.getOfficeNo());
         parameters.put("membertype", office.getMembertype());
         parameters.put("ownid", person.getId());
         Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
